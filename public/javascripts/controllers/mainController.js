@@ -1,7 +1,5 @@
 app.controller("mainCtrl", ['$scope', function($scope) {
 
-
-
 	$scope.myTasks = [
 		{
 			day: 'Monday',
@@ -30,6 +28,14 @@ app.controller("mainCtrl", ['$scope', function($scope) {
 	]
 
 	$scope.teamTasks = ['teamTask1', 'teamTask2', 'teamTask3', 'teamTask4', 'teamTask5', 'teamTask6', 'teamTask7', 'teamTask8']
+
+	$scope.newtask = function (forUser, taskDescr, deadline) {
+		if (forUser && taskDescr && deadline) {
+			alert ('There is a new task for: ' + forUser + ' to do: ' + taskDescr + ' until: ' + deadline);
+		} else {
+			alert ('Refresh now and next time complete ALL fields');
+		}
+	}
 
 
 }]);
