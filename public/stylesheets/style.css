@@ -390,3 +390,16 @@ div.sentence {
     cursor: pointer;
     font-size: 18px;
 }
+
+
+/************---------- my css / new ---------------***********/
+
+/*.top-row {
+  background-image: url(http://id-lawoffice.com/wp-content/uploads/2014/03/new.jpg)
+}*/
+
+.home-class {
+  width: 100%;
+  height: 100%;
+  background-image: url(http://www.insidebusinessnyc.com/wp-content/uploads/2012/10/IMG_1932.jpg);
+}

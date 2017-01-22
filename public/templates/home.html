@@ -1,15 +1,16 @@
-<div class="container-fluid">
+<div class="container-fluid home-class">
 
-	<div class="row">
-		<div class="col-md-12">
+	<div class="row top-row">
+	<h2 class="box-heading"> Deadlines </h2>
+		<div class="col-md-2" ng-repeat="t in myTasks track by $index">
 			<div class="panel panel-default">
 				<div class="box-heading">
-					My tasks
+					{{t.day}} - to do
 				</div>
 				<div class="panel-body">
 					<ul>
-						<li ng-repeat="t in myTasks track by $index">
-							{{t}}
+						<li ng-repeat="p in t.tasks track by $index">
+							{{p}}
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 							<i class="fa fa-trash" aria-hidden="true"></i>
 						</li>
@@ -17,11 +18,12 @@
 				</div>
 			</div>
 		</div>
+
 	</div>
 
 
 
-	<div class="row">
+	<div class="row second-row">
 		<div class="col-sm-6">
 			<div class="panel panel-default">
 				<div class="box-heading">
