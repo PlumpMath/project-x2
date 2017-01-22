@@ -403,3 +403,15 @@ div.sentence {
   height: 100%;
   background-image: url(http://www.insidebusinessnyc.com/wp-content/uploads/2012/10/IMG_1932.jpg);
 }
+
+table {
+  border: 2px black solid;
+}
+
+th {
+  border: 1px black dashed;
+}
+
+td {
+  border: 1px black dotted;
+}

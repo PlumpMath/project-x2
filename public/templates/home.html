@@ -1,7 +1,7 @@
 <div class="container-fluid home-class">
 
 	<div class="row top-row">
-	<h2 class="box-heading"> Deadlines </h2>
+	<h2 class="box-heading"> my Deadlines </h2>
 		<div class="col-md-2" ng-repeat="t in myTasks track by $index">
 			<div class="panel panel-default">
 				<div class="box-heading">
@@ -30,13 +30,20 @@
 					Team's tasks
 				</div>
 				<div class="panel-body">
-					<ul>
-						<li ng-repeat="a in teamTasks track by $index">
-							{{a}}
-							<i class="fa fa-pencil" aria-hidden="true"></i>
-							<i class="fa fa-trash" aria-hidden="true"></i>
-						</li>
-					</ul>
+					<table>
+						<tr>
+							<th>From</th>
+							<th>On</th>
+							<th>Deadline</th>
+							<th>task</th>
+						</tr>
+						<tr ng-repeat="a in teamTasks track by $index">
+							<td>Admin</td>
+							<td>21/1/2017</td>
+							<td>30/1/2017</td>
+							<td>{{a}}</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -52,28 +59,33 @@
 				</div>
 				<div class="panel-body">
 
-
-
-
-
-				<!-- TO FILL -->
-				<form>
-					<input type="text" placeholder="To Whom?"> <br> <hr>
-					<input type="text" placeholder="What?"> <br> <hr>
-					<input type="submit" class="btn bt-primary" value="Add task">
-				</form>
-
-
-
-
+					<form>
+						<select ng-value="assignToUser">
+							<option>User1</option>
+							<option>User2</option>
+							<option>User3</option>
+						</select>
+						<br> <hr>
+						<input type="text" placeholder="What?"> <br> <hr>
+						<input type="submit" class="btn bt-primary" value="Add task">
+					</form>
 
 				</div>
 			</div>
-
-
-
-
-		</div>
-
 		</div>
 	</div>
+
+	<div class="row">
+		<div class="col-md-2">
+			<a href=""> Go to User1's tasks</a>
+		</div>
+		<div class="col-md-2">
+			<a href=""> Go to User2's tasks</a>
+		</div>
+		<div class="col-md-2">
+			<a href=""> Go to User3's tasks</a>
+		</div>
+	</div>
+
+
+</div>
