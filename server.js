@@ -1,10 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-// var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-// mongoose.connect(process.env.MONGOLAB_JADE_URI || 'mongodb://localhost/fanco');cd
+mongoose.connect(process.env.MONGOLAB_BRONZE_URI || 'mongodb://localhost/fanco');
 
-// mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 
 var routes = require('./routes/index');
 
@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', routes);
 
-var port = process.env.PORT || '8800';
+var port = (process.env.PORT || '8800');
 
 app.listen(port, function () {
   console.log('ok! On localhost:' + port);
