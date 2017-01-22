@@ -1,5 +1,37 @@
 <div class="container-fluid home-class">
 
+	<header>
+	<nav class="navbar navbar-default" id="orizontalnav">
+		<div class="cm-navbar">
+		  <ul id="navlist">
+		    <li class="topnav"><a class="hiThere"> Other View1 </a></li>
+		    <li class="topnav"><a class="hiThere"> Other View2 </a></li>
+		  </ul>
+		</div>
+
+		<!-- NOT WORKING YET -->
+		<div class="dropdown pull-right">
+      <button class="btn btn-primary dropdownbtn collapsed" data-toggle="collapse">Current User's Name</button>
+      <ul class="dropdown-content" >
+        <li class="text-center">
+          <strong>Current User</strong>
+        </li>
+        <li>
+          <a href="#">Profile</a>
+        </li>
+        <li>
+          <a href="#">Settings</a>
+        </li>
+        <li>
+          <a href="">Sign out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+	</header>
+
+
 	<div class="row top-row">
 	<h2 class="box-heading"> my Deadlines </h2>
 		<div class="col-md-2" ng-repeat="t in myTasks track by $index">
@@ -70,6 +102,9 @@
 							<option>User1</option>
 							<option>User2</option>
 							<option>User3</option>
+							<option>User4</option>
+							<option>User5</option>
+							<option>User6</option>
 						</select>
 						<br> <hr>
 						Task: <input type="text" placeholder="What?" ng-model="taskDescr"> <br> <hr>
@@ -82,7 +117,7 @@
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row row-other-users">
 		<div class="col-md-2">
 			<a href=""> Go to User1's tasks</a>
 		</div>
@@ -91,6 +126,15 @@
 		</div>
 		<div class="col-md-2">
 			<a href=""> Go to User3's tasks</a>
+		</div>
+		<div class="col-md-2">
+			<a href=""> Go to User4's tasks</a>
+		</div>
+		<div class="col-md-2">
+			<a href=""> Go to User5's tasks</a>
+		</div>
+		<div class="col-md-2">
+			<a href=""> Go to User6's tasks</a>
 		</div>
 	</div>
 

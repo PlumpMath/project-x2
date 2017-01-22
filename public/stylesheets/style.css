@@ -2,33 +2,25 @@
 	padding: 80px 50px;
 }
 
-#navlist {
-	list-style-type: none;
-	font-size: 25px;
-	margin: auto;
+a.hiThere {
+  text-align: center;
+  color: black;
+  margin-top: -10px;
+  text-decoration: none;
 }
 
-ul#navlist {
-    padding-left: 45px;
-    padding-top: 4px;
+.topnav a:hover {
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
 }
 
-#navlist li {
-	display: inline;
-	margin-right: 15px;
-	color: white;
+.topnav a:active {
+  text-decoration: none;
 }
 
-#orizontalnav {
-	height:50.5px;
-	    background-color: #148f77;
-    border-color: #0f705d;
-}
-
-nav.cm-navbar.cm-navbar-turquoise.leftmenu {
-    background-color: #148f77;
-    border-color: #0f705d;
-    font-size: 16px;
+.topnav a:focus {
+  text-decoration: none;
 }
 
 .topnav {
@@ -37,171 +29,45 @@ nav.cm-navbar.cm-navbar-turquoise.leftmenu {
   padding-top: 10px;
 }
 
-.topnav a {
-  text-decoration: none;
+.dropbtn {
+  background-color: #4CAF50;
   color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
 
-.topnav a:hover {
-  text-decoration: none;
-  /*color: #1abc9c;*/
-  color:   #aaaaaa;
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-.topnav a:active {
-  text-decoration: none;
-  color: white;
-  /*background-color: #1abc9c;*/
-}
-
-.topnav a:focus {
-  text-decoration: none;
-  color: #eee;
-  /*background-color: #1abc9c;*/
-}
-
-.hiThere {
-  margin: auto;
-}
-
-.dropdown.pull-right {
-    display: none;
-}
-
-.btn.btn-turquoise.md-menu-white.hidden-md.hidden-lg {
-    margin-bottom: -31px;
-    margin-left: 7px;
-        background-color: transparent;
-    border: 1px solid transparent;
-}
-
-.graph h3 {
-    font-family: 'Oswald',sans-serif!important;
-    font-size: 30px;
-    color: #ffac4d;
-    font-weight: bolder;
-}
-.graph h4 {
-    font-family: 'Oswald',sans-serif!important;
-    font-size: 20px;
-    color: #ffac4d;
-    font-weight: bolder;
+.dropdown-content {
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .box-heading {
-    font-size: 19px;
-    color: #ffac4d;
-    font-weight: bolder;
-    background: #fff;
-    text-align: center;
-    padding: 10px 15px;
-    border-bottom: 1px solid #eee;
+  font-size: 19px;
+  color: #ffac4d;
+  font-weight: bolder;
+  background: #fff;
+  text-align: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
 }
 
 .provided-text {
   color: #999;
 }
 
-ul#myDropdown input {
-    margin: 4px 10px 0;
-}
-
-@media (max-width: 900px) {
-
-   body a.hiThere {
-    line-height: 12px;
-  }
-
-  ul#navlist {
-    padding-left: 45px;
-    padding-bottom: 14px;
-  }
-
-  .button {
-    width: 20%;
-    font-size: 1em;
-  }
-  .modebtn {
-    width: 17%;
-    font-size: .9em;
-  }
-}
-
-
-/*D3 graph stuff!*/
-
-
-/*path {
-  stroke: steelblue;
-  fill: none;
-  stroke-width: 1.5px;
-}*/
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: grey;
-  stroke-width: 1;
-  shape-rendering: crispEdges;
-}
-
-div.tooltip {
-    position: absolute;
-    text-align: center;
-    width: 70px;
-    height: 30px;
-    padding: 2px;
-    font: 12px sans-serif;
-    background: lightsteelblue;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
-}
-
-.axis text {
-  font: 12px sans-serif;
-}
-
 .modeContainer {
   margin: 0 auto;
   text-align: center;
 }
-
-.modebtn {
-    color: grey;
-    width: 10%;
-    height: 45px;
-    font-size: 1.1em;
-    font-family: 'Montserrat';
-    text-transform: uppercase;
-    background-color:transparent;
-    letter-spacing: .08em;
-    border-radius: 8px;
-    outline: none;
-    border: 1px solid grey;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.modebtn:hover {
-  border: 2px solid grey;
-}
-
-.modebtn:active {
-  border: 3px solid grey;
-}
-
-.modeContainer a {
-  text-decoration: none;
-  font-size: 1.1em;
-  padding: 10px;
-}
-
-@charset "utf-8";
-
-
-@import url//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
-
 
 
 div.main{
@@ -225,7 +91,7 @@ width:100%;
 
 * {
   box-sizing: border-box;
-    margin:0px auto;
+  margin:0px auto;
 
   &:before,
   &:after {
@@ -235,8 +101,7 @@ width:100%;
 }
 
 body {
-
-    color: #606468;
+  color: #606468;
   font: 87.5%/1.5em 'Open Sans', sans-serif;
   margin: 0;
 }
@@ -248,7 +113,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: white;
 }
 
 input {
@@ -286,27 +150,11 @@ p {
   transform: translate(-50%, -50%);
 }
 
-i.fa.fa-truck {
-    margin-right: 6px;
-}
-
-i.fa.fa-map-marker {
-    margin-right: 6px;
-}
-
-i.fa.fa-calendar{
-    margin-right: 6px;
-}
-
-.filter {
-      margin-left: 24px;
-      color: #777;
-}
 
 /* ---------- LOGIN ---------- */
 
 #login form{
-  width: 250px;
+  width: 300px;
 }
 #login, .logo{
     display:inline-block;
@@ -323,7 +171,7 @@ font-size:50px;
   line-height: 125px;
 }
 
-#login form span.fa {
+#login form p span.fa {
   background-color: #fff;
   border-radius: 3px 0px 0px 3px;
   color: #000;
@@ -339,19 +187,29 @@ font-size:50px;
 #login form input {
   height: 50px;
 }
-fieldset{
-    padding:0;
-    border:0;
-    margin: 0;
 
+fieldset {
+  padding:0;
+  border:0;
+  margin: 0;
 }
-#login form input[type="text"], input[type="password"] {
+
+#login form input[type="text"]{
   background-color: #fff;
   border-radius: 0px 3px 3px 0px;
   color: #000;
   margin-bottom: 1em;
   padding: 0 16px;
-  width: 200px;
+  width: 180px;
+}
+
+#login form input[type="password"]{
+  background-color: #fff;
+  border-radius: 0px 3px 3px 0px;
+  color: #000;
+  margin-bottom: 1em;
+  padding: 0 16px;
+  width: 180px;
 }
 
 #login form input[type="submit"] {
@@ -384,19 +242,15 @@ fieldset{
 }
 
 div.sentence {
-    color: white;
-    margin-left: 300px;
-    margin-top: 53px;
-    cursor: pointer;
-    font-size: 18px;
+  color: white;
+  margin-left: 300px;
+  margin-top: 53px;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 
 /************---------- my css / new ---------------***********/
-
-/*.top-row {
-  background-image: url(http://id-lawoffice.com/wp-content/uploads/2014/03/new.jpg)
-}*/
 
 .home-class {
   width: 100%;
@@ -414,4 +268,17 @@ th {
 
 td {
   border: 1px black dotted;
+}
+
+.row-other-users a {
+  text-decoration: none;
+  color: yellow;
+  background-color: black;
+  font-size: 18px;
+}
+
+.row-other-users a:hover {
+  text-decoration: none;
+  color: yellow;
+  font-size: 25px;
 }

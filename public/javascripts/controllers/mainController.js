@@ -27,7 +27,7 @@ app.controller("mainCtrl", ['$scope', function($scope) {
 		}
 	]
 
-	$scope.teamTasks = ['teamTask1', 'teamTask2', 'teamTask3', 'teamTask4', 'teamTask5', 'teamTask6', 'teamTask7', 'teamTask8']
+	$scope.teamTasks = ['teamTask1', 'teamTask2', 'teamTask3', 'teamTask4', 'teamTask5', 'teamTask6', 'teamTask7', 'teamTask8', 'teamTask9', 'teamTask10', 'teamTask11', 'teamTask12', 'teamTask13', 'teamTask14', 'teamTask15']
 
 	$scope.newtask = function (forUser, taskDescr, deadline) {
 		if (forUser && taskDescr && deadline) {
