@@ -95,20 +95,25 @@
 					Assign Task
 				</div>
 				<div class="panel-body">
-
 					<form ng-submit="newtask(forUser, taskDescr, deadline)">
-						For:
-						<select ng-model="forUser">
-							<option>User1</option>
-							<option>User2</option>
-							<option>User3</option>
-							<option>User4</option>
-							<option>User5</option>
-							<option>User6</option>
-						</select>
-						<br> <hr>
-						Task: <input type="text" placeholder="What?" ng-model="taskDescr"> <br> <hr>
-						Completed before: <input type="date" ng-model="deadline"> <br> <hr>
+						<!-- select is not working together with material design -->
+						<div class="input-field col s12">
+							For: <input type="text" placeholder="lalala" ng-model="forUser">
+							<!-- <select ng-model="forUser">
+								<option>User1</option>
+								<option>User2</option>
+								<option>User3</option>
+								<option>User4</option>
+								<option>User5</option>
+								<option>User6</option>
+							</select> -->
+						</div>
+						<div class="input-field col s12">
+							Task: <input type="text" placeholder="What?" ng-model="taskDescr">
+						</div>
+						<div class="input-field col s12">
+							Completed before: <input type="date" class="datepicker" ng-model="deadline">
+						</div>
 						<input type="submit" class="btn bt-primary" value="Add task">
 					</form>
 
