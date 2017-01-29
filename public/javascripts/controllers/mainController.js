@@ -1,4 +1,21 @@
-app.controller("mainCtrl", ['$scope', function($scope) {
+app.controller("mainCtrl", ['$scope', '$state', 'auth', function($scope, $state, auth) {
+
+
+/*$scope.onSignIn = function (googleUser) {
+	console.log(googleUser)
+  var profile = googleUser.getBasicProfile();
+  console.log('Signed in as: ' + googleUser.getBasicProfile().getName());
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}*/
+
+	$scope.register = function (x) {
+		auth.register(x).then(function(){
+      $state.go('home');
+    });
+	}
 
 	$scope.myTasks = [
 		{
@@ -39,3 +56,4 @@ app.controller("mainCtrl", ['$scope', function($scope) {
 
 
 }]);
+

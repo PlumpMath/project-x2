@@ -9,8 +9,14 @@ app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
   	})
     .state('login', {
       url: '/login',
-      templateUrl: 'templates/login.html'
+      templateUrl: 'templates/login.html',
+      controller: 'mainCtrl'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: 'templates/register.html',
+      controller: 'mainCtrl'
     })
 
-	$urlRouterProvider.otherwise('login');
+	$urlRouterProvider.otherwise('register');
 }]);

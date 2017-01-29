@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>	Project test </title>
+	<title>	Office Management </title>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="578572235537-0pd6m6osr6dh7tuk8hu6pjsglbceigr5.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+ <!--    <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.el.MBXDh4UHCvU.O/m=signin2/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AGLTcCNcQ24KqBoLG0ZkvMWHDS6e5x7Pwg/cb=gapi.loaded_0" async=""></script> -->
+
+
+
 	<script src="angular/angular.js"></script>
   <script src="angular-ui-router/release/angular-ui-router.min.js"></script>
-
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <!-- ES6 -->
   <!-- <script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
   <script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
@@ -16,6 +23,7 @@
   <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
+
 <body ng-app="todolistc">
 
 	<div class="outestdiv">
@@ -28,5 +36,6 @@
   <script src="materialize-css/dist/js/materialize.js"></script>
 	<script src="javascripts/app.js"></script>
 	<script src="javascripts/controllers/mainController.js"></script>
+  <script src="javascripts/services/auth.js"></script>
 </body>
 </html>
