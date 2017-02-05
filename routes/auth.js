@@ -5,13 +5,11 @@ var jwt = require('express-jwt')
 var auth = jwt({secret: 'mySecretKey'});
 var passport = require('passport');
 
-var LocalStrategy = require('passport-local').Strategy;
-
 require('../config/passport');
 
 // router.use(passport.initialize()); /// ?????
 var User = require('../models/Users');
-
+var Group = require('../models/Group');
 
 
 router.post('/register', function(req, res, next){
@@ -19,15 +17,10 @@ router.post('/register', function(req, res, next){
   var user = new User();
 
   user.username = req.body.username;
-
   user.setPassword(req.body.password);
-
   user.name = req.body.name;
-
   user.lastname = req.body.lastname;
-
   user.mail = req.body.email;
-
   user.cell = req.body.cellnumber;
 
   user.save(function (err){
@@ -52,6 +45,7 @@ router.post('/login', function (req, res, next) {
   })(req, res, next);
 })
 
+
 router.post('/creategroup', function (req, res) {
   var group = new Group ();
 
@@ -60,12 +54,12 @@ router.post('/creategroup', function (req, res) {
   group.descr = req.body.descr
   group.setPassword(req.body.password)
 
-
   group.save(function (err) {
     if (err) { console.log (err) }
 
     res.end();
   })
 })
+
 
 module.exports = router;

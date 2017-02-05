@@ -1,4 +1,4 @@
-app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', function($scope, $state, auth, task) {
+app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', 'group', function($scope, $state, auth, task, group) {
 
 
 	$scope.currentUser = auth.currentUser()
@@ -57,7 +57,9 @@ app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', function($scope,
 	$scope.creategroup = function (newgroup) {
 		newgroup.admin = $scope.currentUser.username
 
-		group.creategroup(newgroup);
+		group.creategroup(newgroup).then(function(){
+      $state.go('home');
+    });
 	}
 
 	$scope.logIn = function(user){

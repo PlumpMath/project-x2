@@ -5,7 +5,7 @@ var crypto = require('crypto');
 var GroupSchema = new mongoose.Schema({
   name: String,
   descr: String,
-  members: [String],
+  members: [String],  // reference
   admin: String,
   hash: String,
   salt: String
@@ -22,7 +22,6 @@ GroupSchema.methods.validPassword = function(password) {
 
   return this.hash === hash;
 };
-
 
 var Group = mongoose.model('group', GroupSchema);
 

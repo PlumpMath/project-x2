@@ -3,7 +3,6 @@ var router = express.Router();
 var mongoose = require('mongoose');
 
 var Task = require('../models/Task');
-var Group = require('../models/Group');
 
 
 router.post('/addnewtask', function (req, res) {
