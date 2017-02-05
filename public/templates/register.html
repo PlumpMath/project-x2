@@ -2,8 +2,24 @@
   <span>{{ error.message }}</span>
 </div>
 
-<form ng-submit="register(user)" style="margin-top:30px;">
+<form ng-submit="register(user)" style="margin:30px;">
   <h3>Register</h3>
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Name" ng-model="user.name"></input>
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Lastname" ng-model="user.lastname"></input>
+  </div>
+
+  <div class="form-group">
+    <input type="number" class="form-control" placeholder="Cellnumber" ng-model="user.cellnumber"></input>
+  </div>
+
+  <div class="form-group">
+    <input type="email" class="form-control" placeholder="Email" ng-model="user.email"></input>
+  </div>
 
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Username" ng-model="user.username"></input>

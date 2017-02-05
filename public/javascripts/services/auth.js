@@ -2,11 +2,11 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
 	var auth = {};
 
    auth.saveToken = function (token) {
-     $window.localStorage['rereddit-jwt'] = token;
+     $window.localStorage['officeToDo-jwt'] = token;
    };
 
    auth.getToken = function (){
-     return $window.localStorage['rereddit-jwt'];
+     return $window.localStorage['officeToDo-jwt'];
    }
 
    auth.isLoggedIn = function(){
@@ -21,7 +21,7 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
      }
    };
 
-   auth.currentUser = function(){
+   auth.currentUser = function() {
      if(auth.isLoggedIn()){
        var token = auth.getToken();
        var payload = JSON.parse($window.atob(token.split('.')[1]));
@@ -30,20 +30,21 @@ app.factory('auth', ['$http', '$window', function ($http, $window) {
      }
    };
 
-   auth.register = function(user){
-     return $http.post('/register', user).success(function(data){
-       auth.saveToken(data.token);
+   auth.register = function(user) {
+     return $http.post('/register', user).then(function(data){
+      console.log(data.data.token)
+       auth.saveToken(data.data.token);
      });
    };
 
-   auth.logIn = function(user){
-     return $http.post('/login', user).success(function(data){
-       auth.saveToken(data.token);
+   auth.logIn = function(user) {
+     return $http.post('/login', user).then(function(data){
+       auth.saveToken(data.data.token);
      });
    };
 
-   auth.logOut = function(){
-     $window.localStorage.removeItem('rereddit-jwt');
+   auth.signOut = function() {
+     $window.localStorage.removeItem('officeToDo-jwt');
    };
 
 	return auth

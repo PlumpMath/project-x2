@@ -1,43 +1,34 @@
 <div class="container-fluid home-class">
 
 	<header>
-	<a href="#" onclick="signOut();">Sign out</a>
-<!-- <script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-</script> -->
-
 
 	<nav class="navbar navbar-default" id="orizontalnav">
 		<div class="cm-navbar">
 		  <ul id="navlist">
-		    <li class="topnav"><a class="hiThere"> Other View1 </a></li>
-		    <li class="topnav"><a class="hiThere"> Other View2 </a></li>
+		    <li class="topnav"><a href="#" class="hiThere" ng-click="signOut()">Sign out</a></li>
+		    <li class="topnav"><a class="hiThere"> My Group <!-- Groups --> </a></li>
+		    <li class="topnav"><a ui-sref="newgroup" class="hiThere"> Create new Group </a></li>
 		  </ul>
 		</div>
 
+		<div class="pull-right">
+			<!-- <strong> -->
+				<input type="button" class="btn btn-primary" name="current" value="{{currentUser.username}}">
+			<!-- </strong> -->
+		</div>
+
 		<!-- NOT WORKING YET -->
-		<div class="dropdown pull-right">
-      <button class="btn btn-primary dropdownbtn collapsed" data-toggle="collapse">Current User's Name</button>
+<!--<div class="dropdown pull-right">
+      <button class="btn btn-primary dropdownbtn collapsed" data-toggle="collapse">{{currentUser}}</button>
       <ul class="dropdown-content" >
-        <li class="text-center">
-          <strong>Current User</strong>
-        </li>
         <li>
           <a href="#">Profile</a>
         </li>
         <li>
           <a href="#">Settings</a>
         </li>
-        <li>
-          <a href="">Sign out</a>
-        </li>
       </ul>
-    </div>
+    </div> -->
   </nav>
 
 	</header>
@@ -103,13 +94,17 @@
 
 			<div class="panel panel-default">
 				<div class="box-heading box1">
-					Assign Task
+					Assign new Task
+					<!-- TODO Update existing, remove existing -->
 				</div>
 				<div class="panel-body">
-					<form ng-submit="newtask(forUser, taskDescr, deadline)">
+					<form ng-submit="newtask(task)">
 						<!-- select is not working together with material design -->
 						<div class="input-field col s12">
-							For: <input type="text" placeholder="lalala" ng-model="forUser">
+							Task: <input type="text" placeholder="What?" ng-model="task.descr">
+						</div>
+						<div class="input-field col s4">
+							For: <input type="text" placeholder="lalala" ng-model="task.to">
 							<!-- <select ng-model="forUser">
 								<option>User1</option>
 								<option>User2</option>
@@ -119,13 +114,21 @@
 								<option>User6</option>
 							</select> -->
 						</div>
-						<div class="input-field col s12">
-							Task: <input type="text" placeholder="What?" ng-model="taskDescr">
+						<div class="input-field col s4">
+							Completed before: <input type="date" class="datepicker" ng-model="task.duedate">
 						</div>
-						<div class="input-field col s12">
-							Completed before: <input type="date" class="datepicker" ng-model="deadline">
+						<div class="input-field col s4">
+							<br>
+							Notifications:
+							<!-- Rounded switch -->
+							<label class="switch">
+							  <input type="checkbox" ng-model="task.notifications">
+							  <div class="slider round"></div>
+							</label>
 						</div>
-						<input type="submit" class="btn bt-primary" value="Add task">
+						<div class="col s12">
+							<input type="submit" class="btn bt-primary" value="Add task">
+						</div>
 					</form>
 
 				</div>

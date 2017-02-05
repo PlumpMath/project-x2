@@ -7,7 +7,7 @@
 
 
   <div class="g-signin2" ng-click="onSignIn()" data-gapiscan="true" data-onload="true">
-    <div style="height:36px;width:120px;" class="abcRioButton abcRioButtonLightBlue">
+    <div style="height:36px;width:120px;margin-top:75px;margin-right:50px;" class="abcRioButton abcRioButtonLightBlue">
       <div class="abcRioButtonContentWrapper">
         <div class="abcRioButtonIcon" style="padding:8px">
           <div style="width:18px;height:18px;" class="abcRioButtonSvgImageWithFallback abcRioButtonIconImage abcRioButtonIconImage18">
@@ -26,8 +26,8 @@
           </div>
         </div>
       <span style="font-size:13px;line-height:34px;" class="abcRioButtonContents">
-        <span id="not_signed_inungm9gy1glv9">Σύνδεση</span>
-        <span id="connectedungm9gy1glv9" style="display:none">Signed in</span>
+        <span id="not_signed_inungm9gy1glv9">Connect</span>
+        <!-- <span id="connectedungm9gy1glv9" style="display:none">Signed in</span> -->
       </span>
       </div>
     </div>
@@ -49,16 +49,16 @@
         <form action="javascript:void(0);" method="get">
 
           <fieldset class="clearfix">
-
-            <p><span class="fa fa-user"></span><input type="text"  placeholder="Username" required></p>
-            <p><span class="fa fa-lock"></span><input type="password"  placeholder="Password" required></p>
-
-
             <div>
               <span style="width:48%; text-align:left;  display: inline-block;"><a class="small-text" href="#">Forgot
               password?</a></span>
-              <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Sign In" ui-sref="home"></span>
+              <span style="width:48%; text-align:left;  display: inline-block;"><a class="small-text" ui-sref="register"> Register</a></span>
+              <br><br>
             </div>
+
+            <p><span class="fa fa-user"></span><input type="text"  placeholder="Username" ng-model="user.username" required></p>
+            <p><span class="fa fa-lock"></span><input type="password"  placeholder="Password" ng-model="user.password" required></p>
+            <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Sign In" ng-click="logIn(user)"></span>
 
           </fieldset>
 
