@@ -13,6 +13,7 @@ router.post('/addnewtask', function (req, res) {
   task.taskDescr = req.body.descr
   task.duedate = req.body.duedate
   task.notification = req.body.notifications
+  task.checkdate = req.body.checkdate
 
   task.save(function (err) {
   	if (err) { console.log (err) }

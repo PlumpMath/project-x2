@@ -9,11 +9,10 @@ require('../config/passport');
 
 // router.use(passport.initialize()); /// ?????
 var User = require('../models/Users');
-var Group = require('../models/Group');
+var Cases = require('../models/Case');
 
 
 router.post('/register', function(req, res, next){
-
   var user = new User();
 
   user.username = req.body.username;
@@ -46,18 +45,41 @@ router.post('/login', function (req, res, next) {
 })
 
 
-router.post('/creategroup', function (req, res) {
-  var group = new Group ();
+router.post('/createcase', function (req, res) {
+  var newCase = new Cases();
 
-  group.name = req.body.name
-  group.admin = req.body.admin
-  group.descr = req.body.descr
-  group.setPassword(req.body.password)
+  newCase.name = req.body.name
+  newCase.admin = req.body.admin
+  newCase.descr = req.body.descr
+  newCase.setPassword(req.body.password)
 
-  group.save(function (err) {
+  newCase.save(function (err) {
     if (err) { console.log (err) }
 
     res.end();
+  })
+})
+
+router.get('/cases/:caseName', function (req,res) {
+
+  Cases.findOne({name: req.caseName}, function (err, data) {
+    if (err) { console.log (err) }
+    res.send(data)
+  })
+
+})
+
+router.param('caseName', function (req, res, next, cname) {
+  req.caseName = cname;
+  return next();
+})
+
+router.post('/authcase', function (req, res, next) {
+  passport.authenticate('joincase', function (err, aucase, info) {
+    if (aucase) {
+      return res.json({token: aucase.generateJWT()});
+    }
+
   })
 })
 

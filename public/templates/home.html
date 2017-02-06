@@ -1,41 +1,57 @@
 <div class="container-fluid home-class">
 
 	<header>
+		<nav class="navbar navbar-default" id="orizontalnav">
+			<div class="cm-navbar">
+			  <ul id="navlist">
+			    <li class="topnav"><a href="#" class="hiThere" ng-click="signOut()">Sign out</a></li>
+			    <li class="topnav"><a class="hiThere"> My Cases </a></li>
+			    <li class="topnav"><a ui-sref="newcase" class="hiThere"> Create new Case </a></li>
+			    <li class="topnav"><a class="hiThere" ng-click='show=!show'>Join a Case</a></li>
+			    <li class="topnav" ng-show=show><a class="hiThere" style="height: 64px;"><input type="search" name="searchcases" placeholder="Search..." ng-model="caseToFind"> </a></li>
+			    <li class="topnav" ng-show=show><a class="hiThere"> <button class="btn btn-primary" ng-click="findCase(caseToFind)">Go</button></a></li>
 
-	<nav class="navbar navbar-default" id="orizontalnav">
-		<div class="cm-navbar">
-		  <ul id="navlist">
-		    <li class="topnav"><a href="#" class="hiThere" ng-click="signOut()">Sign out</a></li>
-		    <li class="topnav"><a class="hiThere"> My Group <!-- Groups --> </a></li>
-		    <li class="topnav"><a ui-sref="newgroup" class="hiThere"> Create new Group </a></li>
-		  </ul>
-		</div>
+			  </ul>
+			</div>
 
-		<div class="pull-right">
-			<!-- <strong> -->
+			<div class="pull-right">
 				<input type="button" class="btn btn-primary" name="current" value="{{currentUser.username}}">
-			<!-- </strong> -->
-		</div>
+			</div>
 
-		<!-- NOT WORKING YET -->
-<!--<div class="dropdown pull-right">
-      <button class="btn btn-primary dropdownbtn collapsed" data-toggle="collapse">{{currentUser}}</button>
-      <ul class="dropdown-content" >
-        <li>
-          <a href="#">Profile</a>
-        </li>
-        <li>
-          <a href="#">Settings</a>
-        </li>
-      </ul>
-    </div> -->
-  </nav>
-
+			<!-- NOT WORKING YET -->
+			<!--<div class="dropdown pull-right">
+	      <button class="btn btn-primary dropdownbtn collapsed" data-toggle="collapse">{{currentUser}}</button>
+	      <ul class="dropdown-content" >
+	        <li>
+	          <a href="#">Profile</a>
+	        </li>
+	        <li>
+	          <a href="#">Settings</a>
+	        </li>
+	      </ul>
+	    </div> -->
+	  </nav>
 	</header>
+
+	<!-- The PopUp -->
+	<div id="myModal" class="modal">
+
+	  <div class="modal-content" ng-show=found>
+	    <span class="close" ng-click="closeIt()">&times;</span>
+	    Enter Password: <input type="Password" name="casePass" ng-model="casePass">
+	    <button class="btn btn-primary" ng-click="authJoinCase(casePass)"> Join! </button>
+	  </div>
+
+	  <div class="modal-content" ng-hide=found>
+	    <span class="close" ng-click="closeIt()">&times;</span>
+	    The Case You Searched For Does Not Exist! Try Again (case sensitive)
+	  </div>
+
+	</div>
 
 
 	<div class="row top-row">
-	<h2 class="box-heading"> my Deadlines </h2>
+		<h2 class="box-heading"> my Deadlines </h2>
 		<div class="col-md-2" ng-repeat="t in myTasks track by $index">
 			<div class="panel panel-default">
 				<div class="box-heading">
@@ -52,13 +68,12 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 
 
 
 	<div class="row second-row">
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<div class="panel panel-default">
 				<div class="box-heading">
 					Team's tasks
@@ -89,7 +104,7 @@
 
 
 
-		<div class="col-sm-6">
+		<div class="col-sm-8">
 
 
 			<div class="panel panel-default">
@@ -103,21 +118,16 @@
 						<div class="input-field col s12">
 							Task: <input type="text" placeholder="What?" ng-model="task.descr">
 						</div>
-						<div class="input-field col s4">
-							For: <input type="text" placeholder="lalala" ng-model="task.to">
-							<!-- <select ng-model="forUser">
-								<option>User1</option>
-								<option>User2</option>
-								<option>User3</option>
-								<option>User4</option>
-								<option>User5</option>
-								<option>User6</option>
-							</select> -->
+						<div class="input-field col s3">
+							For: <input type="text" placeholder="User" ng-model="task.to">
 						</div>
-						<div class="input-field col s4">
+						<div class="input-field col s3">
 							Completed before: <input type="date" class="datepicker" ng-model="task.duedate">
 						</div>
-						<div class="input-field col s4">
+						<div class="input-field col s3">
+							Handed before: <input type="date" class="datepicker" ng-model="task.checkdate">
+						</div>
+						<div class="input-field col s3">
 							<br>
 							Notifications:
 							<!-- Rounded switch -->

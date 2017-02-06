@@ -6,7 +6,8 @@ var TaskSchema = new mongoose.Schema({
   currentDate: {type: Date, default: Date.now},
   to: String,
   taskDescr: String,
-  duedate: String,
+  checkdate: Date,
+  duedate: Date,
   notification: Boolean
 });
 

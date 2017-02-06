@@ -17,9 +17,9 @@ app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
       templateUrl: 'templates/register.html',
       controller: 'mainCtrl'
     })
-    .state('newgroup', {
-      url: '/newgroup',
-      templateUrl: 'templates/newgroup.html',
+    .state('newcase', {
+      url: '/newcase',
+      templateUrl: 'templates/newcase.html',
       controller: 'mainCtrl'
     })
 

@@ -1,23 +1,14 @@
-app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', 'group', function($scope, $state, auth, task, group) {
+app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', 'caseService', function($scope, $state, auth, task, caseService) {
 
-
-	$scope.currentUser = auth.currentUser()
-
-/*$scope.onSignIn = function (googleUser) {
-	console.log(googleUser)
-  var profile = googleUser.getBasicProfile();
-  console.log('Signed in as: ' + googleUser.getBasicProfile().getName());
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}*/
-
-	$scope.register = function (x) {
-		auth.register(x).then(function(){
-      $state.go('home');
-    });
-	}
+	/*$scope.onSignIn = function (googleUser) {
+		console.log(googleUser)
+	  var profile = googleUser.getBasicProfile();
+	  console.log('Signed in as: ' + googleUser.getBasicProfile().getName());
+	  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	  console.log('Name: ' + profile.getName());
+	  console.log('Image URL: ' + profile.getImageUrl());
+	  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	}*/
 
 	$scope.myTasks = [
 		{
@@ -48,16 +39,27 @@ app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', 'group', functio
 
 	$scope.teamTasks = ['teamTask1', 'teamTask2', 'teamTask3', 'teamTask4', 'teamTask5', 'teamTask6', 'teamTask7', 'teamTask8', 'teamTask9', 'teamTask10', 'teamTask11', 'teamTask12', 'teamTask13', 'teamTask14', 'teamTask15']
 
+
+
+
+	$scope.currentUser = auth.currentUser()
+
+	$scope.register = function (x) {
+		auth.register(x).then(function(){
+      $state.go('home');
+    });
+	}
+
 	$scope.newtask = function (newtask) {
 		newtask.current = $scope.currentUser.username
 
 		task.addtask(newtask);
 	}
 
-	$scope.creategroup = function (newgroup) {
-		newgroup.admin = $scope.currentUser.username
+	$scope.createcase = function (newcase) {
+		newcase.admin = $scope.currentUser.username
 
-		group.creategroup(newgroup).then(function(){
+		caseService.createcase(newcase).then(function(){
       $state.go('home');
     });
 	}
@@ -73,6 +75,47 @@ app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', 'group', functio
   $scope.signOut = function () {
   	auth.signOut();
   }
+
+  $scope.findCase = function(g) {
+  	// console.log(g)
+
+  	caseService.findCase(g).then(function (data) {
+  		// console.log(data.data)
+  		$scope.caseId = data.data._id
+  		if (data.data) {
+  			$scope.found = true
+  		} else {
+  			$scope.found = false
+  		}
+  		document.getElementById('myModal').style.display = "block"
+  	})
+  }
+
+  $scope.closeIt = function () {
+  	document.getElementById('myModal').style.display = "none"
+  }
+
+  $scope.authJoinCase = function (casePass) {
+  	var caseAuth = {
+  		id: $scope.caseId,
+  		password: casePass
+  	}
+
+  	caseService.auhtenticate(caseAuth)/*.then(function (data) {
+  		//messaging and then close
+  	})*/
+  	$scope.closeIt()
+  }
+
+
+	window.onclick = function(event) {
+    if (event.target == document.getElementById('myModal')) {
+      $scope.closeIt();
+    }
+	}
+
+
+
 
 }]);
 
