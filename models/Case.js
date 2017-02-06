@@ -29,10 +29,9 @@ CaseSchema.methods.generateJWT = function() {
   var exp = new Date(today);
   exp.setDate(today.getDate() + 30);
 
-  //maybe prob with 'username???'
   return jwt.sign({
     _id: this._id,
-    username: this.username,
+    name: this.name,
     exp: parseInt(exp.getTime() / 1000),
   }, 'mySecretKey');
 };

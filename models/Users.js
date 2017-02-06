@@ -9,7 +9,8 @@ var UserSchema = new mongoose.Schema({
   name: String,
   lastname: String,
   mail: String,
-  cell: Number
+  cell: Number,
+  cases: [String]
 });
 
 UserSchema.methods.setPassword = function(password){

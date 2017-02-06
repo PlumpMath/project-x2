@@ -74,6 +74,7 @@ app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', 'caseService', f
 
   $scope.signOut = function () {
   	auth.signOut();
+  	caseService.signOut();
   }
 
   $scope.findCase = function(g) {

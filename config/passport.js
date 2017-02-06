@@ -23,8 +23,9 @@ passport.use('login', new LocalStrategy(
 
 passport.use('joincase', new LocalStrategy(
   function(id, password, done) {
-
-    Cases.findOne({ name: id }, function (err, aucase) {
+    console.log('id')
+    console.log(id)
+    Cases.findOne({ _id: id }, function (err, aucase) {
       if (err) { return done(err); }
 
       if (!aucase.validPassword(password)) {

@@ -56,7 +56,7 @@ router.post('/createcase', function (req, res) {
   newCase.save(function (err) {
     if (err) { console.log (err) }
 
-    res.end();
+    return res.json({token: newCase.generateJWT()})
   })
 })
 
@@ -80,7 +80,7 @@ router.post('/authcase', function (req, res, next) {
       return res.json({token: aucase.generateJWT()});
     }
 
-  })
+  })(req, res, next);
 })
 
 
