@@ -29,6 +29,8 @@ CaseSchema.methods.generateJWT = function() {
   var exp = new Date(today);
   exp.setDate(today.getDate() + 30);
 
+  console.log ('HellOOOooOOO!')
+
   return jwt.sign({
     _id: this._id,
     name: this.name,

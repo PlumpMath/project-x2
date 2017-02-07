@@ -7,7 +7,7 @@
 			    <li class="topnav"><a href="#" class="hiThere" ng-click="signOut()">Sign out</a></li>
 			    <li class="topnav"><a class="hiThere"> My Cases </a></li>
 			    <li class="topnav"><a ui-sref="newcase" class="hiThere"> Create new Case </a></li>
-			    <li class="topnav"><a class="hiThere" ng-click='show=!show'>Join a Case</a></li>
+			    <li class="topnav"><a class="hiThere" ng-click='show=!show' ng-class="{'selected': show}" > Join a Case</a></li>
 			    <li class="topnav" ng-show=show><a class="hiThere" style="height: 64px;"><input type="search" name="searchcases" placeholder="Search..." ng-model="caseToFind"> </a></li>
 			    <li class="topnav" ng-show=show><a class="hiThere"> <button class="btn btn-primary" ng-click="findCase(caseToFind)">Go</button></a></li>
 
@@ -33,7 +33,7 @@
 	  </nav>
 	</header>
 
-	<!-- The PopUp -->
+	<!-- PopUp Start -->
 	<div id="myModal" class="modal">
 
 	  <div class="modal-content" ng-show=found>
@@ -48,7 +48,7 @@
 	  </div>
 
 	</div>
-
+	<!-- PopUp End -->
 
 	<div class="row top-row">
 		<h2 class="box-heading"> my Deadlines </h2>

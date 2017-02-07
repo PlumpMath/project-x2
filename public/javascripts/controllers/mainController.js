@@ -10,6 +10,7 @@ app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', 'caseService', f
 	  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 	}*/
 
+
 	$scope.myTasks = [
 		{
 			day: 'Monday',
@@ -78,13 +79,12 @@ app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', 'caseService', f
   }
 
   $scope.findCase = function(g) {
-  	// console.log(g)
 
   	caseService.findCase(g).then(function (data) {
   		// console.log(data.data)
-  		$scope.caseId = data.data._id
   		if (data.data) {
   			$scope.found = true
+  			$scope.username = data.data.name
   		} else {
   			$scope.found = false
   		}
@@ -97,14 +97,16 @@ app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', 'caseService', f
   }
 
   $scope.authJoinCase = function (casePass) {
+
   	var caseAuth = {
-  		id: $scope.caseId,
+  		username: $scope.username,
   		password: casePass
   	}
 
-  	caseService.auhtenticate(caseAuth)/*.then(function (data) {
+  	caseService.auhtenticate(caseAuth).then(function (data) {
   		//messaging and then close
-  	})*/
+  		console.log('not getting here')
+  	})
   	$scope.closeIt()
   }
 

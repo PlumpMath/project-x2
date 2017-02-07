@@ -12,7 +12,7 @@ app.factory('caseService', ['$http', '$window', function ($http, $window) {
 	}
 
 	nCase.auhtenticate = function (details) {
-		return $http.post('/authcase', details).then(function (data) {
+    return $http.post('/authcase', details).then(function (data) {
 			nCase.saveToken(data.data.token)
 		})
 	}

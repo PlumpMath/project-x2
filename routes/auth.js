@@ -76,8 +76,11 @@ router.param('caseName', function (req, res, next, cname) {
 
 router.post('/authcase', function (req, res, next) {
   passport.authenticate('joincase', function (err, aucase, info) {
+
     if (aucase) {
       return res.json({token: aucase.generateJWT()});
+    } else {
+      return res.status(401).json(info);
     }
 
   })(req, res, next);
