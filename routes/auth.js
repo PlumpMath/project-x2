@@ -60,6 +60,14 @@ router.post('/createcase', function (req, res) {
   })
 })
 
+router.get('/cases', function (req, res) {
+  Cases.find(function (err, cases) {
+    if (err) {console.log (err)}
+
+    res.send(cases)
+  })
+})
+
 router.get('/cases/:caseName', function (req,res) {
 
   Cases.findOne({name: req.caseName}, function (err, data) {

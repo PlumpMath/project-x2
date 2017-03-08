@@ -38,10 +38,8 @@ app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', 'caseService', f
 		}
 	]
 
-	$scope.teamTasks = ['teamTask1', 'teamTask2', 'teamTask3', 'teamTask4', 'teamTask5', 'teamTask6', 'teamTask7', 'teamTask8', 'teamTask9', 'teamTask10', 'teamTask11', 'teamTask12', 'teamTask13', 'teamTask14', 'teamTask15']
-
-
-
+/*	$scope.teamTasks = ['teamTask1', 'teamTask2', 'teamTask3', 'teamTask4', 'teamTask5', 'teamTask6', 'teamTask7', 'teamTask8', 'teamTask9', 'teamTask10', 'teamTask11', 'teamTask12', 'teamTask13', 'teamTask14', 'teamTask15']
+*/
 
 	$scope.currentUser = auth.currentUser()
 
@@ -55,6 +53,20 @@ app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', 'caseService', f
 		newtask.current = $scope.currentUser.username
 
 		task.addtask(newtask);
+	}
+
+	$scope.testing = function () {
+		for (x=1; x<15; x++) {
+			var name  = "case" + x
+			var pass = "pass" + x
+			var obj = {
+				name: name,
+				descr: "this is a description",
+				password: pass
+			}
+			$scope.createcase(obj)
+		}
+		$scope.hello()
 	}
 
 	$scope.createcase = function (newcase) {
@@ -115,6 +127,12 @@ app.controller("mainCtrl", ['$scope', '$state', 'auth', 'task', 'caseService', f
     if (event.target == document.getElementById('myModal')) {
       $scope.closeIt();
     }
+	}
+
+	$scope.hello = function () {
+		caseService.getcases().then(function (data) {
+			$scope.caseList = data.data
+		})
 	}
 
 

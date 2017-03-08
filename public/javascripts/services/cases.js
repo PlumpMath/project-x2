@@ -50,5 +50,9 @@ app.factory('caseService', ['$http', '$window', function ($http, $window) {
     $window.localStorage.removeItem('caseJoin-jwt');
   };
 
+  nCase.getcases = function () {
+    return $http.get('/cases')
+  }
+
 	return nCase
 }])
